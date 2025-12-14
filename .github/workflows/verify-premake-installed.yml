@@ -15,8 +15,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Premake (local action)
-        uses: lolrobbe2/install-premake-manager@v1
-
-      - name: Run premake
-        shell: bash
-        run: premake-manager-cli
+        uses: ./
