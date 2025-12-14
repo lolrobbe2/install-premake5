@@ -14,7 +14,22 @@ runs:
   using: "composite"
   steps:
     - uses: lolrobbe2/install-premake-manager@v1
-    
+
     - name: install premake5
       shell: bash
       run: premake-manager-cli version install ${{ inputs.tag }}
+    
+    - name: add premake5 to env
+      if: runner.os == 'Windows'
+      shell: bash
+      run: echo "$PATH" >> $GITHUB_PATH
+
+    - name: add premake5 to env
+      if: runner.os == 'Linux'
+      shell: bash
+      run: echo "/usr/local/bin/premake5" >> $GITHUB_PATH
+
+    - name: add premake5 to env
+      if: runner.os == 'macOS'
+      shell: bash
+      run: echo "/usr/local/bin/premake5" >> $GITHUB_PATH
