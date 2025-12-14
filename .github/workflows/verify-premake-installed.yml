@@ -16,3 +16,6 @@ jobs:
 
       - name: Install Premake (local action)
         uses: ./
+
+      - name: Run Premake5
+        run: premake5 --version
