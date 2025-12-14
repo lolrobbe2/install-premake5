@@ -1,0 +1,22 @@
+name: Check Actions functional
+
+on:
+  push:
+
+jobs:
+  premake:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Premake (local action)
+        uses: lolrobbe2/install-premake-manager@v1
+
+      - name: Run premake
+        shell: bash
+        run: premake-manager-cli
