@@ -15,4 +15,4 @@ runs:
   steps:
     - name: install premake5
       shell: bash
-      run: premake-manager-cli version install ${{ input.tag}}
+      run: premake-manager-cli version install ${{ inputs.tag }}
